@@ -1,0 +1,20 @@
+services:
+  meilisearch:
+    container_name: meilisearch_21398
+    image: getmeili/meilisearch
+    ports:
+      - "21398:7700"
+    environment:
+      - MEILI_ENV=development
+      - MEILI_MASTER_KEY=nmiOLPIsuGe98x9X66DewtialzoufMYefdsAbfnH6qp
+    volumes:
+      - ./data_meili_21398:/meili_data
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 4096M
+        reservations:
+          cpus: '0.5'
+          memory: 1024M
